@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+
+   <h:form>
+      <h:inputText styleClass="form-control mt-5" value="45.9898987">
+         <f:convertNumber minFractionDigits="4"/>
+      </h:inputText>
+
+      <h:outputText styleClass="form-control mt-5" value="26.979878789">
+         <f:convertNumber pattern="#0.000"/>
+      </h:outputText>
+
+
+      <h:inputText styleClass="form-control mt-5" value="15.05.1587">
+               <f:convertDateTime pattern="yyyy/M/d"/>
+      </h:inputText>
+
+
+      <h:inputText styleClass="form-control">
+         <f:validateDoubleRange minimum="10.99 mt-5" maximum="25.38"/>
+      </h:inputText>
+
+      <h:inputSecret styleClass="form-control mt-5" label="Parolanızı giriniz">
+         <f:validateRequired/>
+      </h:inputSecret>
+
+      <h:outputLabel for="sifreinput" value="Şifre inputu"/>
+      <h:inputSecret id="sifreinput" redisplay="false"/>
+
+      <h:inputText id="adsoyad" required="true"/>
+      <h:message for="adsoyad"/>
+
+      <h:inputSecret id="parolainputu" required="true" requiredMessage="bu alan boş bırakılamaz." >
+         <f:validateRequired for="parolainputu" />
+      </h:inputSecret>
+
+   </h:form>
+
+
+
+
+
+</f:view>
+</html>

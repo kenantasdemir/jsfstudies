@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>JSF with Bootstrap</title>
+    <h:outputStylesheet library="webjars" name="bootstrap/5.0.1/css/bootstrap.min.css" />
+</h:head>
+<f:view>
+
+
+
+        <h:form>
+        <h:outputLabel styleClass="text-center" value="Hello world"/>
+        <h:inputText size="20" id="helloInput" value="#{fmb.sayHello()}" readonly="true" styleClass="form-control">
+            <f:validateLength minimum="5" maximum="15"/>
+        </h:inputText>
+        <h:commandButton value="Gönder" action="sonucsayfasi"/>
+        <h:message for="helloInput" tooltip="true" errorStyle="color: red" showDetail="true" showSummary="true"/>
+
+
+        <h:button rendered="true" styleClass="btn btn-danger">Tıkla</h:button>
+
+        <h:commandButton styleClass="btn btn-outline-success">Command Button</h:commandButton>
+    </h:form>
+
+    <h:form>
+        <h:dataTable value="#{companybean.employees}" var="employee">
+            <h:column>
+                <f:facet name="header">
+                    İsim
+                </f:facet>
+                #{employee.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    Departman
+                </f:facet>
+                #{employee.department}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Yaş</f:facet>
+              #{employee.age}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Maaş</f:facet>
+                #{employee.salary}
+            </h:column>
+        </h:dataTable>
+    </h:form>
+
+    <h:form>
+        <table>
+            <ui:repeat value="#{companybean.employees}" var="p">
+                <tr>
+                    <td>#{p.id}</td>
+                    <td>#{p.name}</td>
+                    <td>#{p.age}</td>
+                    <td>#{p.department}</td>
+                    <td>#{p.salary}</td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:form>
+
+
+        <h:form>
+            <h:graphicImage width="400" height="400" alt="java logo" url="https://www.mediaclick.com.tr/application/files/6816/8130/9538/java.png"/>
+        </h:form>
+
+
+        <h:form>
+            <h:inputText id="inputForName">İsim</h:inputText>
+            <h:inputText id="inputForSurname">Soyisim</h:inputText>
+            <h:inputText id="inputForEmail">Email</h:inputText>
+            <h:inputSecret id="inputForPassword">Parola</h:inputSecret>
+            <h:selectBooleanCheckbox value="#{true}" title=""/>
+            <h:inputTextarea id="inputForPersonalInfo" cols="25" rows="25" title="Kendinizden bahsedin" required="true" requiredMessage="bu alan zorunludur."/>
+            <h:inputHidden id="hiddenInput" value="Burası gizli"/>
+            <h:commandLink id="sendLind" action="actionpage.xhtml">Gönder</h:commandLink>
+            <h:commandButton type="reset">Sıfırla</h:commandButton>
+        </h:form>
+
+        <h:form>
+        <h:outputFormat value="Benim adım {0} soyadım {1}">
+            <f:param id="ad" value="Kenan"/>
+            <f:param id="soyad" value="Taşdemir"/>
+        </h:outputFormat>
+        <h:outputLink target="digersayfa.xhtml">
+            <h:outputText value="Gönder"/>
+        </h:outputLink>
+    </h:form>
+
+
+        <h:form>
+        <h:selectManyCheckbox id="customCheckbox" layout="pageDirection">
+            <f:selectItem id="customItem" itemValue="Eleman 1" itemDescription="Eleman 1 açıklama" />
+        </h:selectManyCheckbox>
+        <h:selectManyMenu id="manyMenuId">
+            <f:selectItem id="elemOne" itemValue="Element One" itemDescription="Element One Description" />
+        </h:selectManyMenu>
+        <h:selectManyListbox>
+            <f:selectItem id="elemTwo " itemValue="Eleman 2" itemLabel="Element 2 Label" itemDescription="Element One Description" />
+        </h:selectManyListbox>
+
+        <h:selectOneRadio id="radioBtn" layout="pageDirection">
+            <f:selectItem id="elemThree" itemValue="Eleman 3" itemLabel="Eleman 3" itemDescription="Element 3"/>
+        </h:selectOneRadio>
+
+        <h:selectOneMenu>
+            <f:selectItem id="elemFour" itemValue="Eleman 4" itemLabel="Eleman 4 " itemDescription="Eleman 4"/>
+        </h:selectOneMenu>
+
+        <h:selectOneListbox>
+            <f:selectItem id="elemFive" itemValue="Eleman 5" itemLabel="Eleman 5" itemDescription="Eleman 5"/>
+        </h:selectOneListbox>
+    </h:form>
+
+        <h:form>
+            <h:panelGrid columns="2" bgcolor="red" footerClass="bg-primary" cellpadding="10" cellspacing="10" >
+                <h:outputText value="Merhaba Dünya"/>
+                <h:inputText value="İcerik"/>
+            </h:panelGrid>
+
+            <h:panelGroup layout="block" >
+                <h:outputText value="İsim:" />
+                <h:outputText value="#{bean.isim}" />
+
+                <h:outputText value="Yaş:" />
+                <h:outputText value="#{bean.yas}" />
+
+                <h:outputText value="Email:" />
+                <h:outputText value="#{bean.email}" />
+
+                <h:outputText value="Adres:" />
+                <h:outputText value="#{bean.adres}" />
+            </h:panelGroup>
+        </h:form>
+
+
+
+        <h:form>
+            <h:inputText validatorMessage="email adresinizi geçerli bir formatta giriniz.">
+                <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"/>
+            </h:inputText>
+
+            <h:inputText label="Email adresinizi giriniz" >
+                <f:validator validatorId="com.kenant42.jsfstudies.EmailCheck"/>
+            </h:inputText>
+        </h:form>
+
+
+
+        <h:form>
+            <h:commandButton id = "submit" action = "result" value = "Show Message">
+                <f:setPropertyActionListener target = "#{userData.data}"
+                                             value = "JSF 2.0 User" />
+            </h:commandButton>
+
+            <h:inputText required="true" requiredMessage="hata">
+                <f:converter converterId="com.kenant42.jsfstudies.CustomConverter"/>
+            </h:inputText>
+
+            <f:selectItem noSelectionOption="true"/>
+        </h:form>
+
+
+
+
+</f:view>
+</html>
