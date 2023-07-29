@@ -167,6 +167,12 @@
             </h:inputText>
 
             <f:selectItem noSelectionOption="true"/>
+
+             <h:commandButton value="Onay ver" actionListener="#{yb.onayVer}">
+                     <f:attribute name="adi" value="#{yb.adi}"/>
+                      <f:attribute name="soyadi" value="#{yb.soyadi}"/>
+             </h:commandButton>
+
         </h:form>
 
 
