@@ -40,6 +40,16 @@
          <f:validateRequired for="parolainputu" />
       </h:inputSecret>
 
+<ui:composition template="/templates/common.xhtml">
+        <ui:define name="pageTitle"> Input User name </ui:define>
+        <ui:define name="pageHeader"> Hello JSF</ui:define>
+
+        <ui:define name="body">
+           <h:message showSummary="true" showDetail="false"> 
+        </h:message>
+</ui:composition>
+                
+
    </h:form>
 
 
